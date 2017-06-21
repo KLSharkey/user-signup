@@ -11,13 +11,13 @@
             <h1>Signup</h1>
             <p>
              <label for="username">Username</label>
-                <input  type="text" id="username" name="username" value='{{username}}'>
-               {{username_error}}</p>
+                <input  type="text" id="username" name="username" value="{{request.form['username']}}">
+               <span style="color:red">{{username_error}}</span></p>
 
             <p>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" value='{{password}}'>
-            {{password_error}}</p>
+            <input type="password" id="password" name="password" value="{{password}}">
+            <span style="color:red">{{password_error}}</span></p>
 
             <p>
             <label for="verify_pass"> Verify Password </label>
@@ -26,7 +26,7 @@
 
             <p>
             <label for="email"> Email (optional)</label>
-            <input type="text" id="email" name="email" value='{{email}}'>
+            <input type="text" id="email" name="email" value='{{request.form["email"]}}'>
             <span style="color:red">{{email_error}}</span></p>
 
             <input type="submit" id="submit" name="submit" value="Submit">

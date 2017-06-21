@@ -27,12 +27,25 @@ def validate():
         verify_error = "Password and Verify Password do not match."
     if len(verify_pass) < 1:
         verify_error = "Please verify password."
+    if password.find(" ") != -1:
+        password_error = "Invalid password."
     if len(password) < 3 or len(password) > 20:
         password_error = "Invalid password."
     if len(username) < 3 or len(username) > 20:
         username_error = "Invalid username."
-    #if len(email) < 1:
-        #email_error = "Please enter valid email."
+    if username.find(" ") != -1:
+        username_error = "Invalid username."
+    if len(email) != 1:
+        if email.find(" ") != -1:
+            email_error = "Please enter valid email."
+        elif email.count('@') != 1:
+            email_error = "Please enter valid email."
+        elif email.count('.') != 1:
+            email_error = "Please enter valid email."
+        elif len(email) < 3 or len(email) > 20:
+            email_error = "Please enter valid email."
+        else:
+            email_error= ''
     if username_error == '' and verify_error == '' and email_error == '' and verify_error == '':
        return redirect(url_for('welcome', username=username))
     else:
